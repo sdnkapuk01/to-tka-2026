@@ -1,239 +1,243 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Try Out Tes Kompetensi Akademik (TKA) - SDN Kapuk 01</title>
-    <!-- Memuat Tailwind CSS untuk tata letak dan desain responsif -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Memuat Font Plus Jakarta Sans dan Inter untuk keterbacaan optimal -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
-    <!-- Memuat Lucide Icons untuk ikon modern dan bersih -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        display: ['Plus Jakarta Sans', 'sans-serif'],
-                    },
-                    colors: {
-                        brokenwhite: '#F8FAFC',
-                        softblue: '#E0F2FE',
-                        primaryblue: '#0284C7',
-                        deepblue: '#0369A1',
-                    }
-                }
-            }
-        }
-    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TO TKA - SDN Kapuk 01</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: linear-gradient(135deg, #F8FAFC 0%, #EFF6FF 50%, #DBEAFE 100%);
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Watermark Logo Sekolah */
+    .watermark-bg {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: min(75vw, 520px);
+      height: auto;
+      opacity: 0.06;
+      pointer-events: none;
+      z-index: 0;
+      user-select: none;
+    }
+
+    .glass-card {
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      box-shadow: 0 10px 30px -5px rgba(30, 58, 138, 0.08);
+    }
+
+    .subject-card {
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .subject-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 35px -10px rgba(29, 78, 216, 0.16);
+      border-color: #93C5FD;
+    }
+  </style>
 </head>
-<body class="bg-gradient-to-br from-[#F8FAFC] via-[#EFF6FF] to-[#DBEAFE] min-h-screen text-slate-800 relative overflow-x-hidden flex flex-col justify-between selection:bg-sky-200 selection:text-sky-900">
+<body class="text-slate-800 flex flex-col justify-between antialiased">
 
-    <!-- Latar Belakang Watermark Logo Sekolah -->
-    <div class="fixed inset-0 pointer-events-none z-0 flex items-center justify-center overflow-hidden">
-        <!-- Menggunakan URL thumbnail Google Drive agar dapat dirender langsung sebagai gambar dengan fallback -->
+  <!-- Background Watermark Logo -->
+  <img 
+    src="https://drive.google.com/thumbnail?id=1RLtSahDI8fZunGk7ckE_YznaAVGlQShh&sz=w1000" 
+    alt="Watermark Logo SDN Kapuk 01" 
+    class="watermark-bg"
+  />
+
+  <!-- Konten Utama -->
+  <main class="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6 pt-8 pb-12 sm:pt-12">
+    
+    <!-- Header / Banner -->
+    <header class="glass-card rounded-2xl p-5 sm:p-7 mb-6 flex flex-col sm:flex-row items-center gap-4 sm:gap-6 text-center sm:text-left">
+      <!-- Kontainer Logo Adaptif -->
+      <div class="shrink-0 flex items-center justify-center p-1.5 bg-white rounded-2xl shadow-sm border border-blue-100">
         <img 
-            src="https://drive.google.com/thumbnail?id=1RLtSahDI8fZunGk7ckE_YznaAVGlQShh&sz=w1000" 
-            alt="Watermark Logo SDN Kapuk 01" 
-            onerror="this.style.display='none'"
-            class="w-[85vw] max-w-[650px] h-auto object-contain opacity-[0.06] mix-blend-multiply select-none transform scale-105 transition-transform duration-1000"
-        >
-    </div>
+          src="https://drive.google.com/thumbnail?id=1RLtSahDI8fZunGk7ckE_YznaAVGlQShh&sz=w400" 
+          alt="Logo SDN Kapuk 01" 
+          class="h-16 sm:h-20 w-auto object-contain block"
+        />
+      </div>
 
-    <!-- Elemen Dekoratif Cahaya Latar (Subtle Ambient Glow) -->
-    <div class="fixed top-[-10%] left-[-10%] w-96 h-96 bg-sky-300/20 rounded-full blur-3xl pointer-events-none z-0"></div>
-    <div class="fixed bottom-[-10%] right-[-10%] w-96 h-96 bg-blue-400/20 rounded-full blur-3xl pointer-events-none z-0"></div>
-
-    <!-- Kontainer Utama -->
-    <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 w-full flex-grow flex flex-col justify-center">
-        
-        <!-- Bagian Header: Logo di Kiri + Judul & Subjudul di Kanan -->
-        <header class="bg-white/80 backdrop-blur-md border border-sky-100/80 shadow-lg shadow-sky-900/5 rounded-3xl p-6 sm:p-8 mb-8 sm:mb-10 transition-all">
-            <div class="flex flex-col sm:flex-row items-center sm:items-center gap-5 sm:gap-7 text-center sm:text-left">
-                
-                <!-- Kontainer Logo Adaptif (Menyesuaikan bentuk asli logo tanpa memotong) -->
-                <div class="shrink-0 relative group">
-                    <div class="bg-gradient-to-b from-white to-sky-50/90 p-3 sm:p-3.5 rounded-2xl shadow-md shadow-sky-200/50 border border-sky-200/70 inline-flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
-                        <img 
-                            src="https://drive.google.com/thumbnail?id=1RLtSahDI8fZunGk7ckE_YznaAVGlQShh&sz=w400" 
-                            alt="Logo SDN Kapuk 01" 
-                            onerror="this.onerror=null; this.src='https://placehold.co/120x120/E0F2FE/0284C7?text=SDN+01';"
-                            class="w-20 h-20 sm:w-24 sm:h-24 object-contain drop-shadow-sm"
-                        >
-                    </div>
-                </div>
-
-                <!-- Judul dan Subjudul Laman -->
-                <div class="flex-1">
-                    <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-sky-100/80 text-sky-800 text-xs sm:text-sm font-semibold mb-2.5 border border-sky-200/60">
-                        <span class="w-2 h-2 rounded-full bg-sky-500 animate-pulse"></span>
-                        Portal Ujian Daring Resmi
-                    </div>
-                    <h1 class="font-display text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight leading-snug">
-                        Try Out Tes Kompetensi Akademik (TKA) - SDN Kapuk 01
-                    </h1>
-                    <p class="mt-2 text-base sm:text-lg font-medium text-sky-700 flex items-center justify-center sm:justify-start gap-2">
-                        <i data-lucide="calendar" class="w-5 h-5 text-sky-600"></i>
-                        <span>Tahun Ajaran 2026/2027</span>
-                    </p>
-                </div>
-            </div>
-        </header>
-
-        <!-- Panduan Singkat Peserta -->
-        <div class="bg-sky-50/90 backdrop-blur-sm border border-sky-200/80 rounded-2xl p-4 sm:p-5 mb-8 flex items-start gap-3.5 shadow-sm">
-            <div class="bg-sky-600 text-white p-2 rounded-xl shrink-0 mt-0.5">
-                <i data-lucide="info" class="w-5 h-5"></i>
-            </div>
-            <div class="text-sm sm:text-base text-slate-700 leading-relaxed">
-                <strong class="font-semibold text-slate-900">Petunjuk Pelaksanaan:</strong> Silakan pilih mata pelajaran Try Out TKA di bawah ini sesuai dengan jadwal yang telah ditentukan oleh Bapak/Ibu Guru. Pastikan koneksi internet stabil sebelum memulai pengerjaan soal.
-            </div>
+      <!-- Judul & Subjudul -->
+      <div class="flex-1 min-w-0">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-semibold mb-2">
+          <span class="w-2 h-2 rounded-full bg-blue-600 animate-pulse"></span>
+          Portal Ujian Daring Resmi
         </div>
+        <h1 class="text-xl sm:text-2xl md:text-3xl font-extrabold text-slate-900 tracking-tight leading-snug">
+          Try Out TKA - SDN Kapuk 01
+        </h1>
+        <p class="mt-1 text-sm sm:text-base font-semibold text-blue-700 flex items-center justify-center sm:justify-start gap-1.5">
+          <svg class="w-4 h-4 text-blue-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+          </svg>
+          Tahun Ajaran 2026/2027
+        </p>
+      </div>
+    </header>
 
-        <!-- Grid Kartu Mata Pelajaran Try Out -->
-        <main class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-            
-            <!-- Kartu 1: Try Out TKA Matematika -->
-            <div class="group bg-white/90 backdrop-blur-md rounded-3xl border border-sky-100 shadow-xl shadow-sky-900/5 hover:shadow-2xl hover:shadow-sky-500/15 hover:border-sky-300 transition-all duration-300 flex flex-col justify-between overflow-hidden transform hover:-translate-y-1">
-                <!-- Aksen Garis Atas -->
-                <div class="h-2 w-full bg-gradient-to-r from-sky-400 to-blue-600"></div>
-                
-                <div class="p-6 sm:p-8 flex-grow flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center justify-between mb-5">
-                            <div class="w-14 h-14 rounded-2xl bg-sky-100 text-sky-600 flex items-center justify-center group-hover:bg-sky-600 group-hover:text-white transition-colors duration-300 shadow-inner">
-                                <i data-lucide="calculator" class="w-7 h-7"></i>
-                            </div>
-                            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200 flex items-center gap-1.5">
-                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-                                Tersedia
-                            </span>
-                        </div>
-                        
-                        <h2 class="font-display text-xl sm:text-2xl font-bold text-slate-900 mb-2 group-hover:text-sky-700 transition-colors">
-                            Try Out TKA Matematika
-                        </h2>
-                        <p class="text-slate-600 text-sm sm:text-base leading-relaxed mb-6">
-                            Evaluasi kemampuan numerasi, pemecahan masalah logis, geometri, dan pengolahan data tingkat Sekolah Dasar.
-                        </p>
-                    </div>
-
-                    <div class="pt-4 border-t border-slate-100 flex flex-col sm:flex-row gap-3">
-                        <a href="https://sdnkapuk01.github.io/to-tka-matematika/" 
-                           target="_blank" 
-                           rel="noopener noreferrer"
-                           class="flex-1 inline-flex items-center justify-center gap-2 bg-gradient-to-r from-sky-600 to-blue-600 hover:from-sky-700 hover:to-blue-700 text-white font-semibold py-3.5 px-5 rounded-xl shadow-md shadow-sky-600/20 hover:shadow-lg transition-all active:scale-[0.98]">
-                            <span>Mulai Try Out</span>
-                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                        </a>
-                        <button type="button" 
-                                onclick="salinTautan('https://sdnkapuk01.github.io/to-tka-matematika/', 'Matematika')"
-                                title="Salin Tautan Try Out Matematika"
-                                class="inline-flex items-center justify-center gap-2 bg-slate-100 hover:bg-sky-100 text-slate-700 hover:text-sky-800 font-medium py-3.5 px-4 rounded-xl transition-colors">
-                            <i data-lucide="copy" class="w-4 h-4"></i>
-                            <span class="sm:hidden">Salin Link</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Kartu 2: Try Out TKA Bahasa Indonesia -->
-            <div class="group bg-white/90 backdrop-blur-md rounded-3xl border border-sky-100 shadow-xl shadow-sky-900/5 hover:shadow-2xl hover:shadow-blue-500/15 hover:border-blue-300 transition-all duration-300 flex flex-col justify-between overflow-hidden transform hover:-translate-y-1">
-                <!-- Aksen Garis Atas -->
-                <div class="h-2 w-full bg-gradient-to-r from-blue-500 to-indigo-600"></div>
-                
-                <div class="p-6 sm:p-8 flex-grow flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center justify-between mb-5">
-                            <div class="w-14 h-14 rounded-2xl bg-blue-100 text-blue-600 flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300 shadow-inner">
-                                <i data-lucide="book-open" class="w-7 h-7"></i>
-                            </div>
-                            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200 flex items-center gap-1.5">
-                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-                                Tersedia
-                            </span>
-                        </div>
-                        
-                        <h2 class="font-display text-xl sm:text-2xl font-bold text-slate-900 mb-2 group-hover:text-blue-700 transition-colors">
-                            Try Out TKA Bahasa Indonesia
-                        </h2>
-                        <p class="text-slate-600 text-sm sm:text-base leading-relaxed mb-6">
-                            Evaluasi kemampuan literasi membaca, pemahaman teks bacaan, kosakata, serta kaidah tata bahasa Indonesia yang baik.
-                        </p>
-                    </div>
-
-                    <div class="pt-4 border-t border-slate-100 flex flex-col sm:flex-row gap-3">
-                        <a href="https://sdnkapuk01.github.io/to-tka-bhs-indonesia/" 
-                           target="_blank" 
-                           rel="noopener noreferrer"
-                           class="flex-1 inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold py-3.5 px-5 rounded-xl shadow-md shadow-blue-600/20 hover:shadow-lg transition-all active:scale-[0.98]">
-                            <span>Mulai Try Out</span>
-                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                        </a>
-                        <button type="button" 
-                                onclick="salinTautan('https://sdnkapuk01.github.io/to-tka-bhs-indonesia/', 'Bahasa Indonesia')"
-                                title="Salin Tautan Try Out Bahasa Indonesia"
-                                class="inline-flex items-center justify-center gap-2 bg-slate-100 hover:bg-blue-100 text-slate-700 hover:text-blue-800 font-medium py-3.5 px-4 rounded-xl transition-colors">
-                            <i data-lucide="copy" class="w-4 h-4"></i>
-                            <span class="sm:hidden">Salin Link</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-        </main>
+    <!-- Petunjuk Pelaksanaan -->
+    <div class="glass-card rounded-xl px-5 py-4 mb-7 flex items-start gap-3.5 border-l-4 border-l-blue-600">
+      <div class="w-7 h-7 rounded-full bg-blue-600 text-white flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold">
+        i
+      </div>
+      <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+        <strong class="text-slate-800">Petunjuk Pelaksanaan:</strong> Silakan pilih mata pelajaran Try Out TKA di bawah ini sesuai dengan jadwal yang telah ditentukan oleh Bapak/Ibu Guru. Pastikan koneksi internet stabil sebelum memulai pengerjaan soal.
+      </p>
     </div>
 
-    <!-- Footer Resmi Sekolah -->
-    <footer class="relative z-10 border-t border-sky-200/60 bg-white/60 backdrop-blur-sm py-6 mt-8">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center text-sm text-slate-600">
-            <p class="font-semibold text-slate-800">SD Negeri Kapuk 01</p>
-            <p class="mt-1 text-xs sm:text-sm text-slate-500">
-                Sistem Informasi &amp; Evaluasi Akademik &bull; Tahun Ajaran 2026/2027
+    <!-- Pilihan Mata Pelajaran -->
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      
+      <!-- Kartu 1: Matematika -->
+      <article class="glass-card subject-card rounded-2xl overflow-hidden flex flex-col justify-between relative">
+        <div class="h-1.5 w-full bg-gradient-to-r from-sky-400 to-blue-600"></div>
+        <div class="p-6 flex-1 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-11 h-11 rounded-xl bg-blue-50 border border-blue-100 text-blue-600 flex items-center justify-center">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                </svg>
+              </div>
+              <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                Tersedia
+              </span>
+            </div>
+
+            <h2 class="text-lg sm:text-xl font-bold text-slate-900 mb-2">
+              Try Out TKA Matematika
+            </h2>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
+              Evaluasi kemampuan numerasi, pemecahan masalah logis, geometri, dan pengolahan data tingkat Sekolah Dasar.
             </p>
-        </div>
-    </footer>
+          </div>
 
-    <!-- Notifikasi Toast (Pengganti Alert untuk Salin Tautan) -->
-    <div id="toast" class="fixed bottom-5 right-5 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
-        <div class="bg-slate-900 text-white px-4 py-3 rounded-2xl shadow-xl flex items-center gap-3 text-sm font-medium border border-slate-700">
-            <div class="bg-emerald-500/20 text-emerald-400 p-1.5 rounded-lg">
-                <i data-lucide="check-circle-2" class="w-4 h-4"></i>
+          <div class="flex items-center gap-2.5 pt-2">
+            <a 
+              href="https://sdnkapuk01.github.io/to-tka-matematika/" 
+              class="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold text-sm shadow-sm transition-all"
+            >
+              Mulai Try Out
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+              </svg>
+            </a>
+            <button 
+              type="button"
+              onclick="salinTautan('https://sdnkapuk01.github.io/to-tka-matematika/')" 
+              title="Salin Tautan Matematika"
+              class="p-2.5 rounded-xl border border-slate-200 bg-white hover:bg-blue-50 hover:border-blue-300 text-slate-600 hover:text-blue-700 transition-colors"
+            >
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Kartu 2: Bahasa Indonesia -->
+      <article class="glass-card subject-card rounded-2xl overflow-hidden flex flex-col justify-between relative">
+        <div class="h-1.5 w-full bg-gradient-to-r from-blue-500 to-indigo-600"></div>
+        <div class="p-6 flex-1 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-11 h-11 rounded-xl bg-indigo-50 border border-indigo-100 text-indigo-600 flex items-center justify-center">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                </svg>
+              </div>
+              <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                Tersedia
+              </span>
             </div>
-            <span id="toast-message">Tautan berhasil disalin!</span>
+
+            <h2 class="text-lg sm:text-xl font-bold text-slate-900 mb-2">
+              Try Out TKA Bahasa Indonesia
+            </h2>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
+              Evaluasi kemampuan literasi membaca, pemahaman teks bacaan, kosakata, serta kaidah tata bahasa Indonesia yang baik.
+            </p>
+          </div>
+
+          <div class="flex items-center gap-2.5 pt-2">
+            <a 
+              href="https://sdnkapuk01.github.io/to-tka-bhs-indonesia/" 
+              class="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold text-sm shadow-sm transition-all"
+            >
+              Mulai Try Out
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+              </svg>
+            </a>
+            <button 
+              type="button"
+              onclick="salinTautan('https://sdnkapuk01.github.io/to-tka-bhs-indonesia/')" 
+              title="Salin Tautan Bahasa Indonesia"
+              class="p-2.5 rounded-xl border border-slate-200 bg-white hover:bg-blue-50 hover:border-blue-300 text-slate-600 hover:text-blue-700 transition-colors"
+            >
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+              </svg>
+            </button>
+          </div>
         </div>
-    </div>
+      </article>
 
-    <!-- Skrip Interaktivitas -->
-    <script>
-        // Inisialisasi ikon Lucide
-        lucide.createIcons();
+    </section>
+  </main>
 
-        // Fungsi menyalin tautan untuk dibagikan ke grup kelas / orang tua
-        function salinTautan(url, mapel) {
-            const tempInput = document.createElement('input');
-            tempInput.value = url;
-            document.body.appendChild(tempInput);
-            tempInput.select();
-            document.execCommand('copy');
-            document.body.removeChild(tempInput);
+  <!-- Footer -->
+  <footer class="relative z-10 py-5 text-center border-t border-blue-200/60 bg-white/50 backdrop-blur-sm">
+    <p class="text-xs sm:text-sm font-bold text-slate-700">SD Negeri Kapuk 01</p>
+    <p class="text-xs text-slate-500 mt-0.5">Sistem Informasi &amp; Evaluasi Akademik • Tahun Ajaran 2026/2027</p>
+  </footer>
 
-            // Tampilkan notifikasi toast
-            const toast = document.getElementById('toast');
-            const toastMsg = document.getElementById('toast-message');
-            toastMsg.textContent = `Tautan Try Out ${mapel} berhasil disalin!`;
-            
-            toast.classList.remove('translate-y-20', 'opacity-0');
-            
-            setTimeout(() => {
-                toast.classList.add('translate-y-20', 'opacity-0');
-            }, 3000);
-        }
-    </script>
+  <!-- Notifikasi Toast Pojok Kanan Atas -->
+  <div 
+    id="toastNotif" 
+    class="fixed top-5 right-5 z-50 flex items-center gap-2.5 bg-slate-900 text-white text-xs sm:text-sm font-medium px-4 py-3 rounded-xl shadow-lg opacity-0 pointer-events-none transition-all duration-300 transform -translate-y-2"
+  >
+    <svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
+    </svg>
+    <span>Tautan berhasil disalin!</span>
+  </div>
+
+  <script>
+    let toastTimer;
+    function salinTautan(url) {
+      navigator.clipboard.writeText(url).then(() => {
+        const toast = document.getElementById('toastNotif');
+        toast.classList.remove('opacity-0', '-translate-y-2', 'pointer-events-none');
+        toast.classList.add('opacity-100', 'translate-y-0');
+
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => {
+          toast.classList.remove('opacity-100', 'translate-y-0');
+          toast.classList.add('opacity-0', '-translate-y-2', 'pointer-events-none');
+        }, 2200);
+      });
+    }
+  </script>
+
 </body>
 </html>
